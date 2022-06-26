@@ -1,0 +1,139 @@
+.card__container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: hsl(210, 14%, 97%);
+  width: 45rem;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  border-radius: 1.5rem;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 1px 1px 40px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+img {
+  min-width: 44%;
+  object-fit: contain;
+  transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+img:hover {
+  transform: scale(1.1);
+}
+
+.card__date {
+  margin: 0.8rem 0.5rem;
+  width: 32rem;
+  padding-inline: 0.5rem;
+}
+
+.card__info-user {
+  margin: 1.7rem 0rem 0.5rem 0;
+  text-align: left;
+  padding-inline: 0.8rem 0.1rem;
+}
+
+.card__info-user h3 {
+  padding-bottom: 0.65rem;
+}
+
+.card__info-user i {
+  margin-right: 0.5rem;
+  font-size: 1.12rem;
+  font-weight: 500;
+}
+
+.name {
+  font-size: 1.35rem;
+  text-align: center;
+  margin: 0.8rem 0 1.3rem 0;
+  letter-spacing: 0.03rem;
+  padding: 0 0.5rem 0 1.6rem;
+  text-align: left;
+}
+
+.name i {
+  margin-right: 0.5rem;
+}
+
+.direction span {
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.card__info-user button {
+  display: flex;
+  text-align: right;
+  justify-content: right;
+}
+
+.btn {
+  border-radius: 100%;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid transparent;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn i {
+  font-size: 1.5rem;
+}
+
+.btn:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+
+.ima {
+  align-items: center;
+  position: relative;
+  top: 1rem;
+  right: 95%;
+  z-index: 10;
+}
+
+/* Small devices (landscape phones, less than 768px) */
+
+@media (max-width: 767.98px) {
+  .card {
+    justify-content: center;
+    align-items: center;
+    width: 20rem;
+    flex-direction: column;
+
+    overflow: hidden;
+  }
+
+  .card img {
+    width: 100%;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .card__date {
+    width: 95%;
+    text-align: center;
+  }
+  .btn {
+    margin-block: 1rem;
+  }
+}
