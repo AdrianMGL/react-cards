@@ -1,6 +1,9 @@
 import "../Styles/CardUser.css";
 import dataUsers from "../Data/users.json";
 import { useState } from "react";
+import CardTitle from "./CardTitle";
+import CardContent from "./CardContent";
+import CardBtn from "./CardBtn";
 
 const colors = [
   "#ebe11f",
@@ -17,7 +20,6 @@ const colors = [
 const CardUser = () => {
   /** json users */
   const userRandom = Math.random() * dataUsers.length;
-
   const random = Math.floor(userRandom);
   const [index, setIndex] = useState(random);
 
@@ -34,42 +36,31 @@ const CardUser = () => {
 
   window.document.body.style = `background:${color}`;
 
+  /** Props */
+  const userName = `${dataUsers[index].name.title} ${dataUsers[index].name.first}
+  ${dataUsers[index].name.last}`;
+  const directionCity = `${dataUsers[index].location.city}`;
+  const directionState = `${dataUsers[index].location.state}`;
+  const country = `${dataUsers[index].location.country}`;
+  const postCode = `${dataUsers[index].location.postcode}`;
+  const email = `${dataUsers[index].email}`;
+  const phone = `${dataUsers[index].phone}`;
+
   return (
     <div className="card__container">
       <div className="card" style={{ color: color }}>
         <img src={dataUsers[index].picture.large} alt="user" />
         <div className="card__date">
-          <h2 className="name">
-            <i className="bx bxs-user"></i>
-            {dataUsers[index].name.title} {dataUsers[index].name.first}{" "}
-            {dataUsers[index].name.last}
-          </h2>
-          <div className="card__info-user">
-            <h3 className="direction">
-              <i className="bx bx-map-pin"></i>
-              {dataUsers[index].location.city},{" "}
-              <span>{dataUsers[index].location.state}.</span>
-            </h3>
-            <h3 className="city">
-              <i className="bx bxs-map"></i>
-              {dataUsers[index].location.country}.
-            </h3>
-            <h3 className="postcode">
-              <i className="bx bx-id-card"></i>
-              {dataUsers[index].location.postcode}.
-            </h3>
-            <h3 className="email">
-              <i className="bx bx-envelope"></i>
-              {dataUsers[index].email}.
-            </h3>
-            <h3 className="phone">
-              <i className="bx bx-phone"></i>
-              {dataUsers[index].phone}.
-            </h3>
-          </div>
-          <button className="btn" onClick={clickBtn} style={{ color: color }}>
-            <i className="bx bx-rotate-right bx-spin bx-flip-vertical"></i>
-          </button>
+          <CardTitle userName={userName} />
+          <CardContent
+            directionCity={directionCity}
+            directionState={directionState}
+            country={country}
+            postCode={postCode}
+            email={email}
+            phone={phone}
+          />
+          <CardBtn btnOnClick={clickBtn} color={color} />
         </div>
         <div className="ima">
           <i className="bx bx-message-dots bx-tada "></i>
